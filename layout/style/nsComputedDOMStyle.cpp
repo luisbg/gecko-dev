@@ -2030,19 +2030,18 @@ AppendCSSGradientToBoxPosition(const nsStyleGradient* aGradient,
 
   aString.AppendLiteral("to");
 
-  if (yValue == 0.0f) {
-    aString.AppendLiteral(" top");
-  } else if (yValue == 1.0f) {
-    aString.AppendLiteral(" bottom");
-  } else if (yValue != 0.5f) { // do not write "center" keyword
-    NS_NOTREACHED("invalid box position");
-  }
-
   if (xValue == 0.0f) {
     aString.AppendLiteral(" left");
   } else if (xValue == 1.0f) {
     aString.AppendLiteral(" right");
   } else if (xValue != 0.5f) { // do not write "center" keyword
+    NS_NOTREACHED("invalid box position");
+  }
+  if (yValue == 0.0f) {
+    aString.AppendLiteral(" top");
+  } else if (yValue == 1.0f) {
+    aString.AppendLiteral(" bottom");
+  } else if (yValue != 0.5f) { // do not write "center" keyword
     NS_NOTREACHED("invalid box position");
   }
 
